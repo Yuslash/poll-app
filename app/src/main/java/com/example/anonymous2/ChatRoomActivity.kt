@@ -19,6 +19,7 @@ import android.view.animation.TranslateAnimation
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -42,10 +43,9 @@ class ChatRoomActivity : ComponentActivity() {
         // Set the content view
         setContentView(R.layout.chat_room)
 
-
-
         val pollButton = findViewById<LinearLayout>(R.id.absoulteContainer)
         val pollTitle = findViewById<TextView>(R.id.polltitle)
+        val pollIcon = findViewById<ImageView>(R.id.pollimage)
 
         val collapsedHeight = 48
         val expandedHeight = 200
@@ -101,6 +101,12 @@ class ChatRoomActivity : ComponentActivity() {
                 pollTitle.textSize = 12f
             }
 
+            val startRotation = if(isCollapsed) 0f else 360f
+            val endRotation = if(isCollapsed) 360f else 0f
+
+            val rotationAnimator = ObjectAnimator.ofFloat(pollIcon, "rotation", startRotation, endRotation)
+            rotationAnimator.duration = 300 // Match the animation duration
+            rotationAnimator.start()
 
         }
 
