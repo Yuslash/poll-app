@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Optimus</string>
+    <string name="title_activity_chat_room">ChatRoomActivity</string>
+</resources>

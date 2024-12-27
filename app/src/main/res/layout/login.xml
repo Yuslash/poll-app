@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Billionoillid"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:layout_marginTop="120dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/inter_18pt_bold"
+        android:letterSpacing="0.01"
+        />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes! you are looking at this beautiful UI Made by An Young Handsome Man Named Sibikrishna from Billionoilld"
+        android:lineHeight="18sp"
+        android:letterSpacing="0.01"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="35dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/inter_18pt_regular"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        />
+
+    <EditText
+        android:id="@+id/identity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Enter Your ID"
+        android:paddingLeft="23dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="12sp"
+        android:layout_below="@+id/desc"
+        android:fontFamily="@font/inter_18pt_semibold"
+        />
+
+    <EditText
+        android:id="@+id/input2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Enter Your Password"
+        android:paddingLeft="23dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="12sp"
+        android:fontFamily="@font/inter_18pt_semibold"
+        android:layout_below="@+id/identity"
+        />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:id="@+id/horizotanlMan"
+        android:layout_below="@+id/input2"
+   >
+        <LinearLayout
+            android:id="@+id/imageAnimationContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/imagebox"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/deliver_box"
+                />
+
+            <ImageView
+                android:id="@+id/imagebox2"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/giftwithrobot"
+                />
+
+            <ImageView
+                android:id="@+id/imagebox3"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gifwithbrithday"
+                />
+
+            <ImageView
+                android:id="@+id/imagebox4"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/christmasthatha"
+                />
+
+
+            <!--duplicate-->
+
+            <ImageView
+                android:id="@+id/imagebo5"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/deliver_box"
+                />
+            <ImageView
+                android:id="@+id/imagebox6"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/giftwithrobot"
+                />
+
+            <ImageView
+                android:id="@+id/imagebox7"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gifwithbrithday"
+                />
+
+            <ImageView
+                android:id="@+id/imagebox8"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/christmasthatha"
+                />
+
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/horizotanlMan"
+        android:layout_marginHorizontal="35dp"
+        android:hint="Login"
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/inter_18pt_semibold"
+        android:textSize="12sp"
+        android:background="@drawable/button_bg"
+       />
+    
+
+</RelativeLayout>

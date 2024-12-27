@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <!--   adding poll option here    -->
+
+    <!-- this below is the top bar  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Server 52342"
+           android:fontFamily="@font/inter_18pt_bold"
+           android:textColor="@color/black"
+           android:textSize="18sp"
+           />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+           <View
+               android:layout_width="5dp"
+               android:layout_height="5dp"
+               android:background="@drawable/sphere_round"
+               />
+
+            <TextView
+                android:id="@+id/onlineCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_18pt_semibold"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Online"
+              android:fontFamily="@font/inter_18pt_semibold"
+              android:layout_marginLeft="3dp"
+              android:textSize="12sp"
+              />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- this below is the top bar  -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        >
+
+       <LinearLayout
+           android:id="@+id/absoulteContainer"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/poll_background"
+           android:orientation="horizontal"
+           android:paddingHorizontal="20dp"
+           android:gravity="center"
+           android:paddingVertical="12dp"
+       >
+
+           <ImageView
+               android:id="@+id/pollimage"
+               android:layout_width="24dp"
+               android:layout_height="24dp"
+               android:src="@drawable/poll"
+               android:scaleType="centerCrop"
+               android:layout_marginEnd="5dp"
+               />
+
+           <TextView
+               android:id="@+id/polltitle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Open A Poll"
+               android:fontFamily="@font/inter_18pt_semibold"
+               android:textSize="12sp"
+               android:textColor="@color/white"
+               />
+
+       </LinearLayout>
+
+    </FrameLayout>
+
+   <ScrollView
+       android:id="@+id/messageScrollView"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       android:padding="20dp"
+       android:fillViewport="true"
+       >
+
+
+    <LinearLayout
+        android:id="@+id/messageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        >
+    </LinearLayout>
+   </ScrollView>
+
+    <LinearLayout
+       android:id="@+id/receivermessagefield"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:background="@color/white"
+        android:padding="10dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+       >
+
+       <EditText
+           android:id="@+id/inputmessage"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="80"
+           android:background="@drawable/message_box"
+           android:textColor="@color/black"
+           android:paddingVertical="15dp"
+           android:paddingLeft="25dp"
+           android:hint="Enter Message"
+           android:textSize="13sp"
+           android:fontFamily="@font/inter_18pt_semibold"
+           />
+
+        <Button
+            android:id="@+id/sendbtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="15dp"
+            android:text="Send"
+            android:background="@drawable/sendbtn"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/inter_18pt_semibold"
+            android:textSize="13sp"
+            android:layout_weight="20"
+            />
+
+   </LinearLayout>
+
+</LinearLayout>
