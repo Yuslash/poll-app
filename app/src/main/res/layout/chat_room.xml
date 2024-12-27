@@ -74,7 +74,7 @@
            android:id="@+id/absoulteContainer"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:background="@drawable/poll_background"
+           android:background="@drawable/radial_background"
            android:orientation="horizontal"
            android:paddingHorizontal="20dp"
            android:gravity="center"
@@ -85,7 +85,7 @@
                android:id="@+id/pollimage"
                android:layout_width="24dp"
                android:layout_height="24dp"
-               android:src="@drawable/poll"
+               android:src="@drawable/poll_icon"
                android:scaleType="centerCrop"
                android:layout_marginEnd="5dp"
                />
