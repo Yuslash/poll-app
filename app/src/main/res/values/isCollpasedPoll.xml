@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+<style name="collapsedAppearence">
+    <item name="android:textColor">@color/offWhite</item>
+    <item name="android:textSize">10sp</item>
+    <item name="android:fontFamily">@font/inter_light</item>
+    <item name="android:lineHeight" tools:ignore="NewApi">1sp</item>
+</style>
+
+    <style name="collapsedAppearence.Expanded">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/inter_18pt_semibold</item>
+    </style>
+</resources>

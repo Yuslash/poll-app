@@ -60,11 +60,38 @@ fun handlePollButtonClick(
 
     // Update pollTitle dynamically
     if (isCollapsed) {
-        pollTitle.text = "Yeaah this is me after clicked"
-        pollTitle.textSize = 8f
+        pollTitle.text = "What you think about the system we are gonna update that soon on so which system doy think guys it will work out the time is not good right so the time will be changed here after so tell me guys which time is best"
+        pollTitle.setTextAppearance(R.style.collapsedAppearence)
+
+        // lets create a layout
+        val linearLayout = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+            ).apply {
+                setMargins(0,20,0,0)
+            }
+        }
+
+        //adding testingTExtView
+        val testingTextView = TextView(context).apply {
+            text = "Im here to testing the text view"
+            textSize = 12f
+            setPadding(16,16,16,16)
+        }
+
+        linearLayout.addView(testingTextView)
+
+        pollButton.removeAllViews()
+        pollButton.addView(linearLayout)
+
     } else {
+        
         pollTitle.text = "Open A Poll"
-        pollTitle.textSize = 12f
+        pollTitle.setTextAppearance(R.style.collapsedAppearence_Expanded)
+
+        pollButton.removeAllViews()
     }
 
     // Rotate the pollIcon

@@ -64,10 +64,11 @@
 
     <!-- this below is the top bar  -->
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
+        android:orientation="vertical"
         >
 
        <LinearLayout
@@ -102,7 +103,7 @@
 
        </LinearLayout>
 
-    </FrameLayout>
+    </LinearLayout>
 
    <ScrollView
        android:id="@+id/messageScrollView"
