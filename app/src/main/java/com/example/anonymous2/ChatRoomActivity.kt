@@ -114,8 +114,58 @@ class ChatRoomActivity : ComponentActivity() {
 
         pollLayout.addView(headerLayout)
 
-       // add the condition over here
+       // create a dummy layout here
+        val dummy = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+           layoutParams = LinearLayout.LayoutParams(
+              LinearLayout.LayoutParams.MATCH_PARENT,
+              LinearLayout.LayoutParams.MATCH_PARENT,
+           ).apply {
+               setMargins(0,20,0,0)
+           }
+            setBackgroundResource(R.drawable.message_background)
+        }
 
+        // create a option layout function to set the count how many times we want
+
+       fun createOptionLayout(optionTextValue: String): LinearLayout{
+
+        return LinearLayout(this@ChatRoomActivity).apply {
+            orientation = LinearLayout.HORIZONTAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            ).apply {
+                setMargins(20,0,20,0)
+            }
+
+
+        val checkBox = View(this@ChatRoomActivity).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                25.dpToPx(), // Expanded height
+                25.dpToPx(), // Expanded height
+            )
+            setBackgroundResource(R.drawable.edittext_bg)
+        }
+
+        val optionText = TextView(this@ChatRoomActivity).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                50.dpToPx()
+            )
+            setBackgroundResource(R.drawable.button_bg)
+           }
+            addView(checkBox)
+            addView(optionText)
+         }
+       }
+
+        val optionText = listOf("option 1", "option 2", "option 3")
+            optionText.forEach { text ->
+                dummy.addView(createOptionLayout(text))
+            }
+
+       // add the condition over here
         pollLayout.setOnClickListener{
             if(isExpand) {
                 pollLayout.layoutParams = LinearLayout.LayoutParams(
@@ -126,6 +176,8 @@ class ChatRoomActivity : ComponentActivity() {
                 }
                 textPoll.text = "Open a Poll"
                 imagePoll.animate().rotation(0f).setDuration(400).start()
+                textPoll.setTextAppearance(R.style.collapsedAppearence_Expanded)
+                pollLayout.removeView(dummy)
 
             } else {
                 pollLayout.layoutParams = LinearLayout.LayoutParams(
@@ -135,10 +187,12 @@ class ChatRoomActivity : ComponentActivity() {
                     setMargins(20,20,20,20)
                 }
 
-                textPoll.text = "Yokoso welcome to soul society"
+                textPoll.text = "What you think about the system we are gonna update that soon on so which system doy think guys it will work out the time is not good right so the time will be changed here after so tell me guys which time is best"
+                textPoll.setTextAppearance(R.style.collapsedAppearence)
                 imagePoll.animate().rotation(360f).setDuration(400).start()
 
                 // here we are gonna add layout when you click
+                pollLayout.addView(dummy)
 
             }
             isExpand = !isExpand
