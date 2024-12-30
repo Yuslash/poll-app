@@ -3,6 +3,7 @@ package com.example.anonymous2
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -64,6 +65,18 @@ fun handlePollButtonClick(
         pollTitle.setTextAppearance(R.style.collapsedAppearence)
 
         // lets create a layout
+        val linearLayout = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+            ).apply {
+                setMargins(0,20,0,0)
+            }
+            setBackgroundColor(Color.parseColor("#FF5733")) // Replace with your desired color
+        }
+
+        pollButton.addView(linearLayout)
 
     } else {
         

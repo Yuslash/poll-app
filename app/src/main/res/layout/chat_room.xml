@@ -64,6 +64,7 @@
 
     <!-- this below is the top bar  -->
 
+<!--poll section starts-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,34 +77,50 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:background="@drawable/radial_background"
-           android:orientation="horizontal"
+           android:orientation="vertical"
            android:paddingHorizontal="20dp"
            android:gravity="center"
            android:paddingVertical="12dp"
        >
 
-           <ImageView
-               android:id="@+id/pollimage"
-               android:layout_width="24dp"
-               android:layout_height="24dp"
-               android:src="@drawable/poll_icon"
-               android:scaleType="centerCrop"
-               android:layout_marginEnd="5dp"
-               />
-
-           <TextView
-               android:id="@+id/polltitle"
-               android:layout_width="wrap_content"
+           <LinearLayout
+               android:id="@+id/notCollapsedPoll"
+               android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="Open A Poll"
-               android:fontFamily="@font/inter_18pt_semibold"
-               android:textSize="12sp"
-               android:textColor="@color/white"
-               />
+               android:orientation="horizontal"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:id="@+id/pollimage"
+                   android:layout_width="24dp"
+                   android:layout_height="24dp"
+                   android:src="@drawable/poll_icon"
+                   android:scaleType="centerCrop"
+                   android:layout_marginEnd="5dp"
+                   />
+
+               <TextView
+                   android:id="@+id/polltitle"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Open A Poll"
+                   android:fontFamily="@font/inter_18pt_semibold"
+                   android:textSize="12sp"
+                   android:textColor="@color/white"
+                   />
+
+           </LinearLayout>
+
+           
 
        </LinearLayout>
 
+
+
     </LinearLayout>
+
+    <!--poll section end-->
+
 
    <ScrollView
        android:id="@+id/messageScrollView"
