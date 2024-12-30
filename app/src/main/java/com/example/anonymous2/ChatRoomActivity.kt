@@ -1,5 +1,6 @@
 package com.example.anonymous2
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -32,18 +33,72 @@ class ChatRoomActivity : ComponentActivity() {
     private val userColors: MutableMap<String, Int> = mutableMapOf() // Map to store unique colors for users
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        fun Int.dpToPx(): Int {
+            return (this * Resources.getSystem().displayMetrics.density).toInt()
+        }
+
         super.onCreate(savedInstanceState)
 
         // Set the content view
         setContentView(R.layout.chat_room)
 
-        val pollButton = findViewById<LinearLayout>(R.id.absoulteContainer)
-        val pollTitle = findViewById<TextView>(R.id.polltitle)
-        val pollIcon = findViewById<ImageView>(R.id.pollimage)
+        // here we are gonna create that poll layout in programmatic layout
+        val topBar = findViewById<LinearLayout>(R.id.topBar)
 
-        pollButton.setOnClickListener {
-            handlePollButtonClick(this, pollButton, pollTitle, pollIcon)
+        // create a new layout in programmatically
+        val pollLayout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            ).apply {
+                setMargins(20,20,20,20)
+            }
+            setBackgroundResource(R.drawable.radial_background)
+            setPadding(40,40,40,40)
         }
+
+        val imagePoll = ImageView(this).apply {
+            setImageResource(R.drawable.poll_icon)
+            layoutParams = LinearLayout.LayoutParams(25.dpToPx(), 25.dpToPx()) // Set width and height
+        }
+
+        val textPoll = TextView(this).apply {
+            text = "Open a Poll"
+            setTextAppearance(R.style.collapsedAppearence_Expanded)
+
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            ).apply {
+                setMargins(20,0,0,0)
+            }
+        }
+
+        // top horiztonal for icon and header
+        val headerLayout = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            )
+            gravity = Gravity.CENTER
+        }
+
+       headerLayout.addView(imagePoll)
+        headerLayout.addView(textPoll)
+
+        pollLayout.addView(headerLayout)
+
+       // adding the new layout below the tobar
+        // first we are ognna create a rootLayout
+
+        val rootParent = topBar.parent as LinearLayout
+        val tobarIndex = rootParent.indexOfChild(topBar)
+        rootParent.addView(pollLayout, tobarIndex + 1)
+
+        // ok we have successufully created the poll layout now we need to expand that
 
         val messageContainer = findViewById<LinearLayout>(R.id.messageContainer)
         val messageScrollView = findViewById<ScrollView>(R.id.messageScrollView)
