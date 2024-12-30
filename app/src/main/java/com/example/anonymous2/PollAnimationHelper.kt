@@ -59,29 +59,41 @@ fun handlePollButtonClick(
 
     valueAnimator.start()
 
+    // i guess we have to create a null safty variable
+    var linearLayout: LinearLayout? = null
+
     // Update pollTitle dynamically
     if (isCollapsed) {
         pollTitle.text = "What you think about the system we are gonna update that soon on so which system doy think guys it will work out the time is not good right so the time will be changed here after so tell me guys which time is best"
         pollTitle.setTextAppearance(R.style.collapsedAppearence)
 
-        // lets create a layout
-        val linearLayout = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-            ).apply {
-                setMargins(0,20,0,0)
+        if(linearLayout == null) {
+
+            // lets create a layout
+            linearLayout = LinearLayout(context).apply {
+                orientation = LinearLayout.VERTICAL
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT
+                ).apply {
+                    setMargins(0, 20, 0, 0)
+                }
+                setBackgroundColor(Color.parseColor("#FF5733")) // Replace with your desired color
             }
-            setBackgroundColor(Color.parseColor("#FF5733")) // Replace with your desired color
+
+            pollButton.addView(linearLayout)
+
         }
-
-        pollButton.addView(linearLayout)
-
     } else {
         
         pollTitle.text = "Open A Poll"
         pollTitle.setTextAppearance(R.style.collapsedAppearence_Expanded)
+
+        // now we are gonna remove it the linearLayout
+        linearLayout?.let {
+            pollButton.removeView(it)
+        }
+        linearLayout = null
     }
 
     // Rotate the pollIcon
