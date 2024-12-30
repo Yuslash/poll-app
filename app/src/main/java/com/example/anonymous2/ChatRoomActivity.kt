@@ -108,14 +108,42 @@ class ChatRoomActivity : ComponentActivity() {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
             )
             gravity = Gravity.CENTER
+            addView(imagePoll)
+            addView(textPoll)
         }
 
-        // lets write the isExpand logic here to show what it has to be
-
-       headerLayout.addView(imagePoll)
-        headerLayout.addView(textPoll)
-
         pollLayout.addView(headerLayout)
+
+       // add the condition over here
+
+        pollLayout.setOnClickListener{
+            if(isExpand) {
+                pollLayout.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    setMargins(20,20,20,20)
+                }
+                textPoll.text = "Open a Poll"
+                imagePoll.animate().rotation(0f).setDuration(400).start()
+
+            } else {
+                pollLayout.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, // Expanded width
+                    200.dpToPx() // Expanded height
+                ).apply {
+                    setMargins(20,20,20,20)
+                }
+
+                textPoll.text = "Yokoso welcome to soul society"
+                imagePoll.animate().rotation(360f).setDuration(400).start()
+
+                // here we are gonna add layout when you click
+
+            }
+            isExpand = !isExpand
+            pollLayout.requestLayout()
+        }
 
        // adding the new layout below the tobar
         // first we are ognna create a rootLayout
