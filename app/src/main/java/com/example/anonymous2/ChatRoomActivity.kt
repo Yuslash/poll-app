@@ -46,17 +46,41 @@ class ChatRoomActivity : ComponentActivity() {
         // here we are gonna create that poll layout in programmatic layout
         val topBar = findViewById<LinearLayout>(R.id.topBar)
 
+        // logic state here
+        var isExpand = false
+
         // create a new layout in programmatically
         val pollLayout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
+
             ).apply {
                 setMargins(20,20,20,20)
             }
             setBackgroundResource(R.drawable.radial_background)
             setPadding(40,40,40,40)
+
+            setOnClickListener{
+                if(isExpand) {
+                    layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    ).apply {
+                        setMargins(20,20,20,20)
+                    }
+                } else {
+                    layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, // Expanded width
+                        200.dpToPx() // Expanded height
+                    ).apply {
+                        setMargins(20,20,20,20)
+                    }
+                }
+                isExpand = !isExpand
+                requestLayout()
+            }
         }
 
         val imagePoll = ImageView(this).apply {
@@ -85,6 +109,8 @@ class ChatRoomActivity : ComponentActivity() {
             )
             gravity = Gravity.CENTER
         }
+
+        // lets write the isExpand logic here to show what it has to be
 
        headerLayout.addView(imagePoll)
         headerLayout.addView(textPoll)
