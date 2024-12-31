@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!--     Content Layer (your actual view)-->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0F969696"/> <!-- Background color with 6% opacity (969696) -->
+            <corners android:radius="8dp"/>   <!-- 8px radius for corners -->
+        </shape>
+    </item>
+</layer-list>

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/chatroombackground"
     >
 
     <!--   adding poll option here    -->
@@ -23,7 +23,7 @@
            android:layout_height="wrap_content"
            android:text="Server 52342"
            android:fontFamily="@font/inter_18pt_bold"
-           android:textColor="@color/black"
+           android:textColor="@color/white"
            android:textSize="18sp"
            />
 
@@ -96,7 +96,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
-       android:background="@color/white"
+       android:background="@color/chatroombackground"
         android:padding="10dp"
         android:clipChildren="false"
         android:clipToPadding="false"

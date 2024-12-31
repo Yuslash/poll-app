@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="customStyles">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/sendermessage</item>
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/inter_18pt_semibold</item>
         <item name="android:maxWidth">340dp</item>

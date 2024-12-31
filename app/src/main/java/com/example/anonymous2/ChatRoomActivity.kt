@@ -1,9 +1,11 @@
 package com.example.anonymous2
 
 import android.content.res.Resources
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.view.View.LAYER_TYPE_SOFTWARE
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
@@ -13,12 +15,14 @@ import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.compose.material3.Checkbox
 import io.socket.client.IO
 import io.socket.client.Socket
 import org.json.JSONObject
@@ -59,28 +63,10 @@ class ChatRoomActivity : ComponentActivity() {
             ).apply {
                 setMargins(20,20,20,20)
             }
+            clipChildren = false
+            clipToPadding = false
             setBackgroundResource(R.drawable.radial_background)
             setPadding(40,40,40,40)
-
-            setOnClickListener{
-                if(isExpand) {
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                    ).apply {
-                        setMargins(20,20,20,20)
-                    }
-                } else {
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, // Expanded width
-                        200.dpToPx() // Expanded height
-                    ).apply {
-                        setMargins(20,20,20,20)
-                    }
-                }
-                isExpand = !isExpand
-                requestLayout()
-            }
         }
 
         val imagePoll = ImageView(this).apply {
@@ -121,9 +107,10 @@ class ChatRoomActivity : ComponentActivity() {
               LinearLayout.LayoutParams.MATCH_PARENT,
               LinearLayout.LayoutParams.MATCH_PARENT,
            ).apply {
-               setMargins(0,20,0,0)
+               setMargins(0,20,0,20)
            }
-            setBackgroundResource(R.drawable.message_background)
+            clipChildren = false
+            clipToPadding = false
         }
 
         // create a option layout function to set the count how many times we want
@@ -136,31 +123,51 @@ class ChatRoomActivity : ComponentActivity() {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
             ).apply {
-                setMargins(20,0,20,0)
+                setMargins(0,0,20,0)
             }
+            clipChildren = false
+            clipToPadding = false
 
+            gravity = Gravity.CENTER_VERTICAL
 
-        val checkBox = View(this@ChatRoomActivity).apply {
-            layoutParams = LinearLayout.LayoutParams(
-                25.dpToPx(), // Expanded height
-                25.dpToPx(), // Expanded height
-            )
-            setBackgroundResource(R.drawable.edittext_bg)
-        }
+            val checkBox = CheckBox(this@ChatRoomActivity).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    24.dpToPx(), // Convert dp to px
+                    24.dpToPx()  // Convert dp to px
+                ).apply {
+                    setMargins(0,20,0,0)
+                }
+            }
 
         val optionText = TextView(this@ChatRoomActivity).apply {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                50.dpToPx()
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(20,20,0,0)
+            }
+            clipChildren = false
+            clipToPadding = false
+           setTextAppearance(R.style.polloptions)
+            setBackgroundResource(R.drawable.polloptionbackground)
+            setPadding(40,40,40,40)
+            text = optionTextValue
+
+            setLayerType(LAYER_TYPE_SOFTWARE, null)  // Disable hardware acceleration for shadows
+            setShadowLayer(
+                30f,        // Blur radius
+                0f,         // Shadow x offset (0 for no shift)
+                0f,         // Shadow y offset (0 for no shift)
+                Color.parseColor("#40000000") // Shadow color with 25% opacity (black #000000)
             )
-            setBackgroundResource(R.drawable.button_bg)
+
            }
             addView(checkBox)
             addView(optionText)
          }
        }
 
-        val optionText = listOf("option 1", "option 2", "option 3")
+        val optionText = listOf("how are you guys are fine with this option", "yes im fine witht this optoina", "no im not fine with this option", "no we can improve this option")
             optionText.forEach { text ->
                 dummy.addView(createOptionLayout(text))
             }
@@ -182,11 +189,10 @@ class ChatRoomActivity : ComponentActivity() {
             } else {
                 pollLayout.layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, // Expanded width
-                    200.dpToPx() // Expanded height
+                    LinearLayout.LayoutParams.WRAP_CONTENT// Expanded height
                 ).apply {
                     setMargins(20,20,20,20)
                 }
-
                 textPoll.text = "What you think about the system we are gonna update that soon on so which system doy think guys it will work out the time is not good right so the time will be changed here after so tell me guys which time is best"
                 textPoll.setTextAppearance(R.style.collapsedAppearence)
                 imagePoll.animate().rotation(360f).setDuration(400).start()
@@ -239,7 +245,7 @@ class ChatRoomActivity : ComponentActivity() {
 
                     // Set background color dynamically
                     if (senderId == socket.id()) {
-                        setBackgroundResource(R.drawable.message_background)
+                        setBackgroundResource(R.drawable.sender_message_2)
                     } else {
                         val backgroundDrawable = resources.getDrawable(R.drawable.receivermessage, null)
                         backgroundDrawable?.mutate()?.setTint(getColorForUser(senderId))
