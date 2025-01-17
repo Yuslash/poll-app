@@ -31,10 +31,10 @@ Here are some screenshots of the app in action! Behold the awesomeness:
 > **Pro tip**: Share the link with your friends, and the more people join, the more fun the chat becomes! 🎉
 
 ### LOGIN UI"S 
-![LOGIN UI's](screenshot1.png)
+![LOGIN UI's](screenshots1.png)
 
 ### LOGIN UI
-![LOGIN UI](screenshot2.png)
+![LOGIN UI](screenshots2.webp)
 
 > [!CAUTION]  
 > **Warning**: You might end up laughing too much. Please take regular breaks to prevent excessive fun! 😂
@@ -45,10 +45,10 @@ Here are some screenshots of the app in action! Behold the awesomeness:
 > **Note**: If you encounter any issues or just want to share your favorite joke, feel free to open an issue or contribute! 😄
 
 ### Conversation View
-![CHAT WINDOW](screenshot3.png)
+![CHAT WINDOW](screenshots3.webp)
 
 ### Conversation View with poll
-![CHAt WINDOW with POLL](screenshot4.png)
+![CHAt WINDOW with POLL](screenshots4.webp)
 
 ---
 
