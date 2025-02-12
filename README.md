@@ -1,5 +1,3 @@
-# Creating the markdown content for the README file
-
 
 # 🔥 **Anonymous Chat Application** 🤫
 
