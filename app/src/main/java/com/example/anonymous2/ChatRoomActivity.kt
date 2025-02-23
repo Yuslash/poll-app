@@ -218,7 +218,7 @@ class ChatRoomActivity : ComponentActivity() {
         val messageScrollView = findViewById<ScrollView>(R.id.messageScrollView)
 
         // Connect to the socket server
-        socket = IO.socket("https://simple-socketio-production.up.railway.app")
+        socket = IO.socket("https://627e-2409-40f4-a8-41ed-d439-c596-291e-d94e.ngrok-free.app/")
         socket.connect()
 
         // Handle incoming messages from the server
